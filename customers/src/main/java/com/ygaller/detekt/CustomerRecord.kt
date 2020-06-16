@@ -14,7 +14,6 @@ data class CustomerRecord(
     private val objectMapper = ObjectMapper()
         .registerModule(KotlinModule()) // To enable no default constructor
   }
-
   fun toDto(): CustomerDto {
     val preferences = ObjectMapper().registerModule(KotlinModule()).readValue<CustomerPreferences>(preferences)
     return CustomerDto(

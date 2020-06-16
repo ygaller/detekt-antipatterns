@@ -28,7 +28,7 @@ internal class CustomerResourceTest {
     }
 
     val start = now().toEpochMilli()
-    repeat(10000) {
+    repeat(10_000) {
       customerResource.getCustomer("1234")
     }
     println("Took: ${now().toEpochMilli() - start}ms")
@@ -43,7 +43,7 @@ internal class CustomerResourceTest {
     }
 
     val start = now().toEpochMilli()
-    repeat(10000) {
+    repeat(10_000) {
       customerResource.getCustomerStatic("1234")
     }
     println("Took: ${now().toEpochMilli() - start}ms")
