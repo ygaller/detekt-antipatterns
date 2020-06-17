@@ -6,11 +6,15 @@ import java.time.Instant.now
 
 internal class CustomerResourceTest {
 
+  companion object {
+    private val objectMapper = ObjectMapper()
+  }
+
   private val customer = CustomerRecord(
       "Herschel",
       "Krustofsky",
       "krusty@clown.com",
-      ObjectMapper().writeValueAsString(CustomerPreferences("en", "usd", "credit","monthly"))
+      objectMapper.writeValueAsString(CustomerPreferences("en", "usd", "credit","monthly"))
   )
 
   private val customerDao = object : CustomerDao {

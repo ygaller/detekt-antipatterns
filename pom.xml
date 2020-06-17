@@ -18,6 +18,32 @@
         <detekt.version>1.9.1</detekt.version>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.ozsie</groupId>
+                <artifactId>detekt-maven-plugin</artifactId>
+                <version>${detekt.version}</version>
+                <executions>
+                    <execution>
+                        <id>detekt-check</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <config>config/detekt.yml</config>
+                    <plugins>
+                        <plugin>detekt-custom-rules/target/detekt-custom-rules-1.0-SNAPSHOT.jar</plugin>
+                    </plugins>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
